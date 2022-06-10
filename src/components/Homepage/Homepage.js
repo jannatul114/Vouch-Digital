@@ -24,9 +24,9 @@ const Homepage = () => {
         <div className='container'>
             <div className='row'>
                 <div className='col-lg-6 col-sm-12 col-md-12 col-12'>
-                    <div className='d-flex align-items-center h-75'>
+                    <div className='d-flex align-items-center h-100'>
                         <div className='w-75 mx-auto mt-5 '>
-                            <h1 className='text-center'>Welcome Back</h1>
+                            <h1 className='text-center welcome my-4'>Welcome Back</h1>
                             <div>
                                 <form onSubmit={handleUser}>
                                     <div class="mb-3">
@@ -36,7 +36,17 @@ const Homepage = () => {
                                         <input name='password' type="password" class="form-control" placeholder="password*" required />
                                     </div>
                                     <div class="mb-3">
-                                        <input type="submit" class="form-control bg-primary" placeholder="name@example.com" value={'Submit'} />
+                                        <input type="submit" class="form-control submit-btn text-white" placeholder="name@example.com" value={'Submit'} />
+                                    </div>
+                                    <div className='d-flex justify-content-between'>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked />
+                                            <label class="form-check-label" for="flexCheckChecked">
+                                                Remember Password
+                                            </label>
+                                        </div>
+
+                                        <a href='#' className='welcome'>Forget Password?</a>
                                     </div>
                                 </form>
                             </div>

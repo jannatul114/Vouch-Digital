@@ -2,6 +2,26 @@
   font-family: 'Roboto', sans-serif;
 }
 
+.welcome {
+  color: #452B96;
+}
+
+.my-btn {
+  background-color: #452B96;
+  padding: 7px 20px;
+  margin: 2rem;
+  color: white;
+  border: none
+}
+
+.submit-btn {
+  background-color: #452B96;
+  padding: 7px 20px;
+  margin: 20px 0px;
+  color: white;
+  border: none
+}
+
 .none {
   display: block;
 }

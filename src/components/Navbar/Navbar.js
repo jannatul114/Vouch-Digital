@@ -12,10 +12,10 @@ const Navbar = () => {
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item me-3">
-                                <button className='btn btn-primary'>Start Free Triel</button>
+                                <button className='my-btn my-2'>Start Free Triel</button>
                             </li>
                             <li class="nav-item">
-                                <button className='btn btn-primary'>Login</button>
+                                <button className='my-btn my-2'>Login</button>
                             </li>
 
                         </ul>
