@@ -1,22 +1,24 @@
 import React, { useEffect } from 'react';
-import { toast } from 'react-toastify';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import auth from '../../firebase.init';
 import Loading from '../Loading/Loading';
+import { toast } from 'react-toastify';
 import { useNavigate, Link } from 'react-router-dom';
-const Homepage = () => {
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+
+const Registar = () => {
     const navigate = useNavigate()
     const [
-        signInWithEmailAndPassword,
+        createUserWithEmailAndPassword,
         user,
         loading,
         error,
-    ] = useSignInWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth);
 
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
 
     if (user || gUser) {
         navigate('/welldone')
+        toast.success('Successfully login')
     }
 
     if (loading || gLoading) {
@@ -32,7 +34,7 @@ const Homepage = () => {
         event.preventDefault()
         const email = event.target.email.value;
         const password = event.target.password.value;
-        signInWithEmailAndPassword(email, password)
+        createUserWithEmailAndPassword(email, password)
     }
     return (
         <div className='container'>
@@ -41,6 +43,8 @@ const Homepage = () => {
                     <div className='d-flex align-items-center h-100'>
                         <div className='w-75 mx-auto mt-5 '>
                             <h1 className='text-center welcome my-4'>Welcome Back</h1>
+
+                            <h2 className='text-center welcome'>Registar</h2>
                             <div>
                                 <form onSubmit={handleUser}>
                                     <div class="mb-3">
@@ -52,18 +56,10 @@ const Homepage = () => {
                                     <div class="mb-3">
                                         <input type="submit" class="form-control submit-btn text-white" placeholder="name@example.com" value={'Submit'} />
                                     </div>
-                                    <div className='d-flex justify-content-between'>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked />
-                                            <label class="form-check-label" for="flexCheckChecked">
-                                                Remember Password
-                                            </label>
-                                        </div>
-                                        <a href='#' className='welcome'>Forget Password?</a>
-                                    </div>
+
                                 </form>
                                 <div className='my-4'>
-                                    <p className='text-center'>Don't have any Account? <Link to={'/registar'}>Registar</Link></p>
+                                    <p className='text-center'>Already have any Account? <Link to={'/home'}>Login</Link></p>
                                 </div>
                                 <div class="mb-3">
                                     <button onClick={() => signInWithGoogle()
@@ -88,4 +84,4 @@ const Homepage = () => {
     );
 };
 
-export default Homepage;
+export default Registar;
